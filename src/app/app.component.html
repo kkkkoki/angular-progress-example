@@ -1,0 +1,12 @@
+<div class="container">
+	<div class="progress">
+		<div class="progress__bar" [style.transform]="'scaleX(' + (percent / 100) + ')'"></div>
+		<p class="progress__label" [style.left]="percent + '%'">{{ percent }}%</p>
+	</div>
+	<div class="btn-wrap">
+		<button class="btn" [class.start]="isStarted" (click)="start()">スタート</button>
+		<button class="btn" [class.stop]="!isStarted" (click)="stop()">ストップ</button>
+		<button id="add" class="btn" (click)="add()">+1%</button>
+		<button id="remove" class="btn" (click)="remove()">-1%</button>
+	</div>
+</div>
