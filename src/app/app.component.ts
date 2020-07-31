@@ -28,16 +28,10 @@ export class AppComponent {
   }
 
   add() {
-    this.percent++;
-    if (this.percent === 100) {
-      document.getElementById('add').classList.add('disabled');
-    }
+    this.percent += 10;
   }
 
   remove() {
-    this.percent--;
-    if (this.percent === 0) {
-      document.getElementById('remove').classList.add('disabled');
-    }
+    this.percent -= 10;
   }
 }
