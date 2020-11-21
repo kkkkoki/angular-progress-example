@@ -16,10 +16,11 @@ export class AppComponent {
     this.isStarted = !this.isStarted;
     this.interval = setInterval(() => {
       this.percent++;
-      if (this.percent === 100) {
+      if (this.percent >= 100) {
         clearInterval(this.interval);
+        this.percent = 100;
       }
-    }, 1000);
+    }, 2000);
   }
 
   stop() {
@@ -28,10 +29,19 @@ export class AppComponent {
   }
 
   add() {
-    this.percent += 10;
+    if (this.percent <= 90) {
+      this.percent += 10;
+    } else if (this.percent >= 90) {
+      this.percent = 100;
+    }
   }
 
   remove() {
-    this.percent -= 10;
+    if (this.percent >= 10) {
+      this.percent -= 10;
+    } else if (this.percent <= 10) {
+      this.percent = 0;
+    }
+    this.stop();
   }
 }
